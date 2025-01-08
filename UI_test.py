@@ -5,7 +5,7 @@ from time import sleep
 class ChessUI:
     def __init__(self, root):
         self.root = root
-        self.root.title("Chess UI")
+        self.root.title("Check-M.A.T.E")
         
         # Main menu
         self.main_menu = tk.Frame(root)
@@ -62,6 +62,6 @@ class ChessUI:
 
 if __name__ == "__main__":
     root = tk.Tk()
-    root.geometry("800x480")  # Adjust for your 7-inch touchscreen
+    root.geometry("1024x600")  # Adjust for your 7-inch touchscreen
     app = ChessUI(root)
     root.mainloop()
