@@ -65,7 +65,7 @@ class GantryControlWidget(BoxLayout):
         self.step_input.bind(text=self.on_step_change)
 
         # Placeholder for any extra action
-        extra_button = Button(text="Extra Action", size_hint_y=0.2)
+        extra_button = Button(text="Reconnect to GRBL", size_hint_y=0.2)
         
         # Debug log area (visible in simulation mode)
         debug_label = Label(text="Debug Log:", size_hint_y=0.1)
@@ -97,7 +97,7 @@ class GantryControlWidget(BoxLayout):
             return
 
         try:
-            self.ser = serial.Serial(grbl_port, 115200, timeout=1)
+            self.ser = serial.Serial(grbl_port, 9600, timeout=1)
             time.sleep(2)  # Allow GRBL to initialize.
             self.send_gcode("$X")  # Clear alarms.
             print(f"Connected to GRBL on {grbl_port}")
